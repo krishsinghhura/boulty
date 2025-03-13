@@ -11,6 +11,7 @@ This project is powered by the **DeepSeek model** through **Groq**, which helps 
 - Provides a file explorer to navigate through generated files.
 - Displays a live code preview for selected files.
 - Utilizes AI to generate structured project files.
+- Allows users to download the entire generated project as a ZIP file.
 
 ## Tech Stack
 
@@ -19,6 +20,7 @@ This project is powered by the **DeepSeek model** through **Groq**, which helps 
 - **AI Model:** DeepSeek via Groq API
 - **State Management:** React Hooks (useState, useEffect)
 - **HTTP Client:** Axios
+- **File Handling:** file-saver, JSZip
 
 ## Installation
 
@@ -52,6 +54,7 @@ This project is powered by the **DeepSeek model** through **Groq**, which helps 
 3. Click the "Generate" button.
 4. The tool will create a project structure based on your input.
 5. Browse the generated files in the file explorer and view their content in the preview panel.
+6. Download the complete project as a ZIP file using the provided download option.
 
 ## Contributing
 
