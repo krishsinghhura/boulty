@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Overview
 
-## Getting Started
+The Project Generator is a web-based tool that generates full-stack projects according to your needs. You can select your preferred tech stack, including frontend frameworks, backend technologies, databases, and styling options. The tool then creates a structured project setup for you.
 
-First, run the development server:
+This project is powered by the **DeepSeek model** through **Groq**, which helps in dynamically generating the project structure based on your input.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Generates a full-stack project tailored to your selections.
+- Supports various frontend, backend, and database technologies.
+- Provides a file explorer to navigate through generated files.
+- Displays a live code preview for selected files.
+- Utilizes AI to generate structured project files.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Frontend:** React, Next.js, Tailwind CSS
+- **Backend:** Next.js API routes
+- **AI Model:** DeepSeek via Groq API
+- **State Management:** React Hooks (useState, useEffect)
+- **HTTP Client:** Axios
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/project-generator.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd project-generator
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Set up the environment variable:
+   - Create a `.env.local` file in the root directory.
+   - Add the following line:
+     ```sh
+     GROQ_API_KEY=your_api_key_here
+     ```
+5. Start the development server:
+   ```sh
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Enter a description of the project structure you want.
+2. Select your preferred tech stack, including frontend, backend, and database.
+3. Click the "Generate" button.
+4. The tool will create a project structure based on your input.
+5. Browse the generated files in the file explorer and view their content in the preview panel.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! Follow these steps:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Fork the repository.
+2. Create a new branch (`feature-branch`).
+3. Commit your changes (`git commit -m "Added new feature"`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For any queries, reach out to [your email or social handle].
