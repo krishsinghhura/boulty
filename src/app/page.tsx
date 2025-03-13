@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
 import Dropdowns from "../components/Dropdowns";
 import InputSection from "../components/InputSection";
 import FileList from "../components/FileList";
@@ -57,6 +59,7 @@ const JSONFormatter: React.FC = () => {
 
       if (jsonData.project) {
         setProjectStructure(jsonData.project);
+        console.log(jsonData.project);
       } else {
         alert("Invalid JSON structure.");
       }
@@ -68,16 +71,43 @@ const JSONFormatter: React.FC = () => {
     }
   };
 
+  const downloadZip = () => {
+    if (!projectStructure) {
+      alert("No project data available.");
+      return;
+    }
+
+    const zip = new JSZip();
+    Object.entries(projectStructure).forEach(([filePath, content]) => {
+      zip.file(filePath, content);
+    });
+
+    zip.generateAsync({ type: "blob" }).then((blob) => {
+      saveAs(blob, "project.zip");
+    });
+  };
+
   return (
     <div className="min-h-screen bg-black text-white p-8 flex flex-col">
-      <Dropdowns
-        styling={styling}
-        setStyling={setStyling}
-        language={language}
-        setLanguage={setLanguage}
-        database={database}
-        setDatabase={setDatabase}
-      />
+      {/* Dropdowns & Download Button */}
+      <div className="flex items-center gap-4">
+        <Dropdowns
+          styling={styling}
+          setStyling={setStyling}
+          language={language}
+          setLanguage={setLanguage}
+          database={database}
+          setDatabase={setDatabase}
+        />
+        <button
+          onClick={downloadZip}
+          className="bg-blue-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mb-3"
+        >
+          Download ZIP
+        </button>
+      </div>
+
+      {/* Input Section */}
       <InputSection
         inputText={inputText}
         setInputText={setInputText}
@@ -85,6 +115,8 @@ const JSONFormatter: React.FC = () => {
         loading={loading}
         buttonClass="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded"
       />
+
+      {/* File List & Code Preview */}
       <div className="flex flex-1 w-full">
         <FileList
           projectStructure={projectStructure}
