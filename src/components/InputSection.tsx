@@ -5,6 +5,7 @@ interface InputSectionProps {
   setInputText: (value: string) => void;
   fetchProjectJSON: () => void;
   loading: boolean;
+  className?: string; // Allow className
 }
 
 const InputSection: React.FC<InputSectionProps> = ({
@@ -12,9 +13,10 @@ const InputSection: React.FC<InputSectionProps> = ({
   setInputText,
   fetchProjectJSON,
   loading,
+  className,
 }) => {
   return (
-    <div className="flex w-full space-x-4 mb-4">
+    <div className={`flex w-full space-x-4 mb-4 ${className || ""}`}>
       <input
         className="flex-1 p-4 bg-gray-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
         type="text"

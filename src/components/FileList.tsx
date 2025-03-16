@@ -3,14 +3,20 @@ import React from "react";
 interface FileListProps {
   projectStructure: Record<string, string> | null;
   setSelectedFile: (file: { path: string; content: string }) => void;
+  className?: string; // Allow className
 }
 
 const FileList: React.FC<FileListProps> = ({
   projectStructure,
   setSelectedFile,
+  className,
 }) => {
   return (
-    <div className="w-3/10 bg-gray-900 p-4 rounded-lg overflow-auto">
+    <div
+      className={`w-3/10 bg-gray-900 p-4 rounded-lg overflow-auto ${
+        className || ""
+      }`}
+    >
       <h2 className="text-lg font-semibold mb-2">Project Files</h2>
       {projectStructure ? (
         Object.entries(projectStructure).map(([filePath, content]) => (

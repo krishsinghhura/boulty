@@ -1,0 +1,14 @@
+version: '3.8'
+name: Boulty
+
+services:
+  boulty:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - GROQ_API_KEY=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
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: ["npm", "run", "dev"]
